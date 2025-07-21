@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propuestas Premios Jerry</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, textarea, select, button {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .resultado {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Propuestas para los Premios Jerry Goldenberg</h1>
+
+  <form id="formulario">
+    <label>Tu nombre completo:
+      <input type="text" id="proponente" required>
+    </label>
+
+    <label>Empresa / Medio / Institución:
+      <input type="text" id="empresa" required>
+    </label>
+
+    <label>Categoría para la que proponés:
+      <input type="text" id="categoria" required>
+    </label>
+
+    <label>Nombre del candidato propuesto:
+      <input type="text" id="candidato" required>
+    </label>
+
+    <label>Justificación de la propuesta:
+      <textarea id="justificacion" rows="4" required></textarea>
+    </label>
+
+    <button type="submit">Generar propuesta</button>
+  </form>
+
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const proponente = document.getElementById('proponente').value;
+      const empresa = document.getElementById('empresa').value;
+      const categoria = document.getElementById('categoria').value;
+      const candidato = document.getElementById('candidato').value;
+      const justificacion = document.getElementById('justificacion').value;
+
+      const resultado = `Propuesta enviada por: ${proponente} (${empresa})\nCategoría: ${categoria}\nCandidato: ${candidato}\nJustificación: ${justificacion}`;
+
+      document.getElementById('resultado').textContent = resultado;
+    });
+  </script>
+</body>
+</html>
